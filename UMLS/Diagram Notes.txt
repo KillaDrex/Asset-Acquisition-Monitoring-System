@@ -1,0 +1,21 @@
+Notes are divided per class.
+
+[Manager]
+. The 'assignEquipment' method has an ArrayList for Equipment, and you also pass an 'Office' object. Make sure to add to both arraylists.
+. In the 'generateReport' method, don't forget to add the report to the arraylist for reports.
+
+[User]
+. The static variable 'numUsers' is used to assign a value to a user's 'userID,' in the constructor. After assigning, increment it.
+. the 'login' method accepts a Arraylist for User objects to compare login info. This arraylist will be defined in the main method.
+. the recordEquipmentCondition has a String parameter for equipment condition ('Good condition' ; 'Needs repair' 'For replacement or lost')
+
+[Equipment]
+. The static variable 'numEquipment' is used to assign a value to a equipment's 'equipmentID,' in the constructor. After assigning, increment it.
+. The conditions are : ('Good condition' ; 'Needs repair' 'For replacement or lost')
+ 
+[Office]
+. Make sure to explicitly define a parameterless constructor. 
+. The static variable 'numOffice' is used to assign a value to an office's 'officeID,' in the constructor. After assigning, increment it.
+
+[EquipmentConditionReport]
+. The 'targetCondition' holds the type of equipment condition that this class will use to filter equipment in its report. [Such as filtering to only equipment 'For replacement or lost' conditions]
