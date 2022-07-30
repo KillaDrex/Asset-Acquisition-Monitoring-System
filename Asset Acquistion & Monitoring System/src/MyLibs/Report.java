@@ -11,9 +11,9 @@ import java.util.ArrayList;
  * @author abero
  */
 public abstract class Report {
-    private ArrayList <Equipment> equipmentList;
+    private ArrayList<Equipment> equipmentList;
     
-    public Report (ArrayList<equipmentList>){
+    public Report (ArrayList<Equipment> equipmentList){
         this.equipmentList = equipmentList;
     }
     

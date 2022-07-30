@@ -3,26 +3,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package MyLibs;     
-import java.util.ArrayList; // import the ArrayList class
+
 /**
  *
  * @author RONALD
  */
-public class Employee {
-    
-    private String Manager;
-    private String Employee;
-    
-    
-    public static void Employee(String[] args) {
-    ArrayList<Equipment> assignEquipment = new ArrayList<Equipment>();
-    System.out.println(Equipment);
-  }
-   public static void Report (String[] args) {
-    ArrayList<Equipment> generateReport = new ArrayList<Report>();
-    System.out.println(Equipment);
-  } 
-    
+public class Employee extends User {
+    public Employee(String name, String password) {
+        super(name, password);
+    }
 }
     
 
