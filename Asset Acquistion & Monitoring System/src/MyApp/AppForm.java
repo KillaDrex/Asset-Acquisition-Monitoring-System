@@ -5,17 +5,36 @@
  */
 package MyApp;
 
+import MyLibs.User;
+import java.util.ArrayList;
+import javax.swing.JLabel;
+
 /**
  *
  * @author killa
  */
 public class AppForm extends javax.swing.JFrame {
-
+    private ArrayList<Object[]> userInfoList;
+    
+    private static User user;
+    
     /**
      * Creates new form AppForm
      */
     public AppForm() {
+        // create user info list
+        userInfoList = new ArrayList<>();
+        userInfoList.add(new Object[] {"Dannie421", "cheezits", 0});
+        userInfoList.add(new Object[] {"Yvonne24", "appalachia", 0});
+        userInfoList.add(new Object[] {"Tim", "codex834", 1});
+        
+        // initialize frame properties
         initComponents();
+        
+        this.add(new LoginPage(getContentPane()));
+        
+        // center window
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -27,17 +46,36 @@ public class AppForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        loginErrorMessageLabel = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Asset Acquisition & Monitoring System");
+        setBackground(new java.awt.Color(55, 61, 71));
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/assets/icon-2.png")).getImage()
+        );
+        setLocation(new java.awt.Point(0, 0));
+        setResizable(false);
+
+        loginErrorMessageLabel.setBackground(new java.awt.Color(0, 0, 0));
+        loginErrorMessageLabel.setFont(new java.awt.Font("Georgia", 1, 15)); // NOI18N
+        loginErrorMessageLabel.setForeground(new java.awt.Color(78, 87, 101));
+        loginErrorMessageLabel.setText("Incorrect Log-in details");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(193, 193, 193)
+                .addComponent(loginErrorMessageLabel)
+                .addContainerGap(193, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(397, Short.MAX_VALUE)
+                .addComponent(loginErrorMessageLabel)
+                .addGap(102, 102, 102))
         );
 
         pack();
@@ -78,6 +116,40 @@ public class AppForm extends javax.swing.JFrame {
         });
     }
 
+    public void useJPanel(javax.swing.JPanel panel) {
+         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );   
+        
+        pack();
+        
+        setLocationRelativeTo(null);
+    }
+    
+    public ArrayList<Object[]> getUserInfoList() {
+        return userInfoList;
+    }
+
+    public JLabel getLoginErrorMessageLabel() {
+        return loginErrorMessageLabel;
+    }
+
+    public static User getUser() {
+        return user;
+    }
+
+    public static void setUser(User user) {
+        AppForm.user = user;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel loginErrorMessageLabel;
     // End of variables declaration//GEN-END:variables
 }

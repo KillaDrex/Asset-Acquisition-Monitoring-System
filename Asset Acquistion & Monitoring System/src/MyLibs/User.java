@@ -34,8 +34,8 @@ public class User {
        for (Object[] info : userInfoList) {
            String name = (String)info[0];
            
-           // if user exists, check password
-           if (this.name.equals(name) ) {
+           // if user exists (not case sensitive), check password (case sensitive)
+           if (this.name.equalsIgnoreCase(name) ) {
                String password = (String)info[1];
                
                if (this.password.equals(password) ) return true;
@@ -53,4 +53,10 @@ public class User {
     public void viewReport(Report report) {
         report.printDetails();
     }
+
+    public String getName() {
+        return name;
+    }
+    
+    
 }
