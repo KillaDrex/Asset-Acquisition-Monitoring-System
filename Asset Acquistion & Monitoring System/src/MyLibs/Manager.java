@@ -50,9 +50,9 @@ public class Manager extends User{
         
         // choose which type of report
         if (objRequest == 0) {
-            report = new OverallReport(equipmentList);
+            report = new OverallReport(equipmentList, offices.toArray());
         } else { // 1
-            report = new EquipmentExpensesReport(equipmentList);
+            report = new EquipmentExpensesReport(equipmentList, offices.toArray() );
         }
         
         return report;

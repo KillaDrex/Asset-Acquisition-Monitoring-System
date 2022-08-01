@@ -434,7 +434,7 @@ public class UserPage extends javax.swing.JPanel {
             Report report = parent.getListOfReports().get(reportIndex);
             
             // get report data (view report)
-            ArrayList<Object[]> listOfEquipmentData = AppForm.getUser().viewReport(parent.getOfficeList().toArray(), report);
+            ArrayList<Object[]> listOfEquipmentData = AppForm.getUser().viewReport(report);
             
             // show table with data
             String title = report instanceof OverallReport ? "An Overall Equipment Report" : "A Report on Equipment Expenses";

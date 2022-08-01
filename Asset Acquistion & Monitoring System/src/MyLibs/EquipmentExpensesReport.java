@@ -12,23 +12,24 @@ import java.util.ArrayList;
  * @author killa
  */
 public class EquipmentExpensesReport extends Report {
-    public EquipmentExpensesReport(ArrayList<Equipment> equipmentList) {
-        super(equipmentList);
+    public EquipmentExpensesReport(ArrayList<Equipment> equipmentList, Object[] officeList) {
+        super(equipmentList, officeList);
     }
 
     @Override
-    protected ArrayList<Object[]> getDetails(Object[] officeList) {
-//            // remove all 'good condition' equipment
-//            ArrayList<Equipment> listOfEquipment = new ArrayList<>();
-//            for (Equipment e : equipmentList) {
-//                // ignore equipment
-//                if (e.getCondition().equals("Good condition") ) {
-//                    continue;
-//                }
-//                
-//                // put to list
-//                listOfEquipment.add(e);
-//            }       
-        return null;
+    protected ArrayList<Object[]> getDetails() {
+        ArrayList<Object[]> equipmentData = new ArrayList<>();
+        
+        // iterate over current list of equipment data & remove 'good condition' equipment
+        for (Object[] oArr : getListOfEquipmentData() ) {
+            if (oArr[3].equals("Good condition") ) {
+                continue;
+            }
+            
+            // add equipment data
+            equipmentData.add(oArr);
+        }
+        
+        return equipmentData;
     }   
 }
