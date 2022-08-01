@@ -20,14 +20,15 @@ public class EquipmentExpensesReport extends Report {
     protected ArrayList<Object[]> getDetails() {
         ArrayList<Object[]> equipmentData = new ArrayList<>();
         
-        // iterate over current list of equipment data & remove 'good condition' equipment
+        // iterate over current list of equipment data & get to-be purchased equipment
         for (Object[] oArr : getListOfEquipmentData() ) {
-            if (oArr[3].equals("Good condition") ) {
+            if (oArr[3].equals("For replacement or lost") ) {
+                // add equipment data
+                equipmentData.add(oArr);                
                 continue;
             }
             
-            // add equipment data
-            equipmentData.add(oArr);
+
         }
         
         return equipmentData;

@@ -644,7 +644,6 @@ public class UserPage extends javax.swing.JPanel {
         parent.remove(this);
         parent.add(new LoginPage(parent.getContentPane()));
         parent.pack();
-        parent.setLocationRelativeTo(null);
     }                                              
 
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) { // view reports toggle                                          

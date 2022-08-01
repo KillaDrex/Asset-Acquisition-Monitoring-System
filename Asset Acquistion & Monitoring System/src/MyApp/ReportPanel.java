@@ -19,7 +19,7 @@ public class ReportPanel extends javax.swing.JPanel {
     public ReportPanel() {
         initComponents();
         jTable1.getColumnModel().getColumn(0).setPreferredWidth(20);
-        jTable1.getColumnModel().getColumn(1).setPreferredWidth(90);
+        jTable1.getColumnModel().getColumn(1).setPreferredWidth(120);
         jTable1.getColumnModel().getColumn(2).setPreferredWidth(90);
         jTable1.getColumnModel().getColumn(3).setPreferredWidth(180);
         jTable1.getColumnModel().getColumn(4).setPreferredWidth(20);
