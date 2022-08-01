@@ -17,5 +17,9 @@ public abstract class Report {
         this.equipmentList = equipmentList;
     }
     
-    public abstract void printDetails();
+    protected abstract ArrayList<Object[]> getDetails(Object[] officeList);
+
+    public ArrayList<Equipment> getEquipmentList() {
+        return equipmentList;
+    }
 }

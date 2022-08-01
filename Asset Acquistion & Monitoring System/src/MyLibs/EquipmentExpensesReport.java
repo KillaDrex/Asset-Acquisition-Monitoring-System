@@ -17,6 +17,18 @@ public class EquipmentExpensesReport extends Report {
     }
 
     @Override
-    public void printDetails() {
+    protected ArrayList<Object[]> getDetails(Object[] officeList) {
+//            // remove all 'good condition' equipment
+//            ArrayList<Equipment> listOfEquipment = new ArrayList<>();
+//            for (Equipment e : equipmentList) {
+//                // ignore equipment
+//                if (e.getCondition().equals("Good condition") ) {
+//                    continue;
+//                }
+//                
+//                // put to list
+//                listOfEquipment.add(e);
+//            }       
+        return null;
     }   
 }

@@ -32,7 +32,23 @@ public class Equipment {
         this.condition = condition;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getEquipmentID() {
+        return equipmentID;
+    }
+
+    public Date getPurchaseDate() {
+        return purchaseDate;
+    }
+
+    public String getCondition() {
+        return condition;
+    }
+    
     public void setCondition(String condition) {
         this.condition = condition;
-    }
+    }    
 }

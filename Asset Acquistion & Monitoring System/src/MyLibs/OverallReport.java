@@ -17,6 +17,34 @@ public class OverallReport extends Report {
     }
         
     @Override
-    public void printDetails() {
+    protected ArrayList<Object[]> getDetails(Object[] officeList) {
+        ArrayList<Object[]> listOfEquipmentData = new ArrayList<>();
+        for (Equipment e : getEquipmentList() ) {
+            Object[] equipmentData = new Object[5];
+            equipmentData[0] = e.getEquipmentID();
+            equipmentData[1] = e.getName();
+            
+            // create date string
+            Date date = e.getPurchaseDate();
+            String dateString = date.getMonth() + "/" + date.getDay() + "/" + date.getYear();
+            
+            // store date string
+            equipmentData[2] = dateString;
+            
+            // store equipment condition
+            equipmentData[3] = e.getCondition();
+            
+            // get office ID
+            for (int i = 0; i < officeList.length; i++) {
+                if (((Office)officeList[i]).getEquipmentList().contains(e) ) {
+                    equipmentData[4] = i;
+                    break;
+                }
+            }
+            // store aggregated equipment data
+            listOfEquipmentData.add(equipmentData);
+        }
+        
+        return listOfEquipmentData;
     }
 }

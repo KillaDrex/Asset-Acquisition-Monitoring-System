@@ -5,9 +5,11 @@
  */
 package MyApp;
 
+import MyLibs.Equipment;
+import MyLibs.Office;
+import MyLibs.Report;
 import MyLibs.User;
 import java.util.ArrayList;
-import javax.swing.JLabel;
 
 /**
  *
@@ -15,6 +17,9 @@ import javax.swing.JLabel;
  */
 public class AppForm extends javax.swing.JFrame {
     private ArrayList<Object[]> userInfoList;
+    private ArrayList<Equipment> stockEquipmentList;
+    private ArrayList<Office> officeList;
+    private ArrayList<Report> listOfReports;
     
     private static User user;
     
@@ -28,11 +33,39 @@ public class AppForm extends javax.swing.JFrame {
         userInfoList.add(new Object[] {"Yvonne24", "appalachia", 0});
         userInfoList.add(new Object[] {"Tim", "codex834", 1});
         
+        // create equipment list as storage
+        stockEquipmentList = new ArrayList<>();
+        stockEquipmentList.add(new Equipment("Photocopier", 15, 6, 2022, "Good condition") );
+        stockEquipmentList.add(new Equipment("Paper shredder", 1, 2, 2021, "Needs repair") );
+  
+        // create office equipment lists
+        ArrayList<Equipment> officeEquipmentList1 = new ArrayList<>();
+        officeEquipmentList1.add(new Equipment("Printer", 12, 4, 2021, "Needs repair") );
+        officeEquipmentList1.add(new Equipment("Fax machine", 4, 3, 2020, "For replacement or lost") );
+        officeEquipmentList1.add(new Equipment("Paper shredder", 3, 7, 2022, "Good condition") );
+        
+        ArrayList<Equipment> officeEquipmentList2 = new ArrayList<>();
+        officeEquipmentList2.add(new Equipment("Photocopier", 27, 2, 2021, "Good condition") );
+        officeEquipmentList2.add(new Equipment("Printer", 7, 2, 2020, "Needs repair") );
+        
+        ArrayList<Equipment> officeEquipmentList3 = new ArrayList<>();
+        officeEquipmentList3.add(new Equipment("Fax machine", 1, 7, 2019, "For replacement or lost") );
+        officeEquipmentList3.add(new Equipment("Paper shredder", 17, 5, 2022, "Good condition") );
+        
+        // create offices & office list
+        officeList = new ArrayList<>();
+        officeList.add(new Office(officeEquipmentList1) );
+        officeList.add(new Office(officeEquipmentList2) );
+        officeList.add(new Office(officeEquipmentList3) );
+        
+        // create list of reports
+        listOfReports = new ArrayList<>();
+        
         // initialize frame properties
         initComponents();
         
         this.add(new LoginPage(getContentPane()));
-        
+
         // center window
         setLocationRelativeTo(null);
     }
@@ -129,15 +162,13 @@ public class AppForm extends javax.swing.JFrame {
         );   
         
         pack();
-        
-        setLocationRelativeTo(null);
     }
     
     public ArrayList<Object[]> getUserInfoList() {
         return userInfoList;
     }
 
-    public JLabel getLoginErrorMessageLabel() {
+    public javax.swing.JLabel getLoginErrorMessageLabel() {
         return loginErrorMessageLabel;
     }
 
@@ -149,6 +180,22 @@ public class AppForm extends javax.swing.JFrame {
         AppForm.user = user;
     }
 
+    public ArrayList<Equipment> getStockEquipmentList() {
+        return stockEquipmentList;
+    }
+
+    public ArrayList<Office> getOfficeList() {
+        return officeList;
+    }
+
+    public ArrayList<Report> getListOfReports() {
+        return listOfReports;
+    }
+
+    public void setListOfReports(ArrayList<Report> listOfReports) {
+        this.listOfReports = listOfReports;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel loginErrorMessageLabel;
     // End of variables declaration//GEN-END:variables

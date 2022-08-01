@@ -15,23 +15,33 @@ public class Manager extends User{
         super(name, password);
     }
     
-     public void assignEquipment(Equipment equipment, Office office, ArrayList<Office> offices) {
+     public void assignEquipment(Equipment equipment, Office office, ArrayList<Office> offices, ArrayList<Equipment> stockEquipmentList) {
         // check if equipment has already been assigned, if so, de-assign
         for (Office o : offices) {
            if (o.getEquipmentList().contains(equipment) ) {
-               o.getEquipmentList().remove(o);
+               o.getEquipmentList().remove(equipment);
+               
+                // put equipment to stock
+                stockEquipmentList.add(equipment);
+                break;               
            }
         }
         
         // assign equipment to office
-        office.getEquipmentList().add(equipment);
+        if (office != null) {
+            office.getEquipmentList().add(equipment);
+            stockEquipmentList.remove(equipment);
+        }
     } 
      
-    public Report generateReport(ArrayList<Office> offices, ArrayList<Report> reportsList, int objRequest) {
+    public Report generateReport(ArrayList<Equipment> stockEquipmentList, ArrayList<Office> offices, int objRequest) {
         Report report;
         
-        // combine all the equipments of each office
+        // combine all the equipments of stock & each office
         ArrayList<Equipment> equipmentList = new ArrayList<>();
+        for (Equipment e : stockEquipmentList) {
+            equipmentList.add(e);
+        }        
         for (Office o : offices) {
             for (Equipment e : o.getEquipmentList() ) {
                 equipmentList.add(e);
@@ -44,9 +54,6 @@ public class Manager extends User{
         } else { // 1
             report = new EquipmentExpensesReport(equipmentList);
         }
-        
-        // add to reports list
-        reportsList.add(report);
         
         return report;
     }

@@ -179,17 +179,26 @@ public class LoginPage extends javax.swing.JPanel {
         if (user.login(parent.getUserInfoList() ) ) {
             // iterate over user info list to determine employee position
             for (Object[] o : parent.getUserInfoList() ) {
+                // wrong user
+                if (!(user.getName().equalsIgnoreCase((String)o[0]) ) ) {
+                    continue;
+                }
+                
                 int objRequest = (Integer)o[2];
                 
                 if (objRequest == 0) {
                     user = new Employee(jTextField3.getText().substring(0, 1).toUpperCase() +
                                             jTextField3.getText().substring(1).toLowerCase(), jPasswordField.getText());
+          
                 } else {
                     user = new Manager(jTextField3.getText().substring(0, 1).toUpperCase() +
                                             jTextField3.getText().substring(1).toLowerCase(), jPasswordField.getText());
                 }
+                
+                // found the user
+                break;
             }
-            
+
             // set main program's user
             parent.setUser(user);
             
@@ -198,7 +207,7 @@ public class LoginPage extends javax.swing.JPanel {
             
             // move to user page
             parent.remove(this);
-            parent.useJPanel(new ExtendedUserPage() );   
+            parent.useJPanel(new UserPage() );   
         } else {
             // log-in failed: show error message
             parent.getLoginErrorMessageLabel().setForeground(new java.awt.Color(255, 23, 73));

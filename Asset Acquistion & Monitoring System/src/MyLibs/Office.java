@@ -34,4 +34,8 @@ public class Office {
     public ArrayList<Equipment> getEquipmentList() {
         return equipmentList;
     }
+
+    public int getOfficeID() {
+        return officeID;
+    }
 }

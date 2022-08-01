@@ -50,8 +50,8 @@ public class User {
         equipment.setCondition(condition);
     }
     
-    public void viewReport(Report report) {
-        report.printDetails();
+    public ArrayList<Object[]> viewReport(Object[] officeList, Report report) {
+        return report.getDetails(officeList);
     }
 
     public String getName() {
