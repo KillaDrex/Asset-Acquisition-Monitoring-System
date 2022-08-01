@@ -478,17 +478,9 @@ public class UserPage extends javax.swing.JPanel {
         ArrayList<Report> listOfReports = parent.getListOfReports();
         listOfReports.add(report);
         
-        // limit the list of reports to size 5
+        // limit the list of reports to size 4
         if (listOfReports.size() > 5) {
-            ArrayList<Report> reportsList = new ArrayList<>();
-            
-            // save the last five reports
-            for (int i = 1; i <= 5; i++) {
-                reportsList.add(listOfReports.get(i) );
-            }
-
-            // move the reports to the main list
-            parent.setListOfReports(reportsList);
+            listOfReports.remove(0);
         }
     }
     
