@@ -35,8 +35,6 @@ public class Manager extends User{
     } 
      
     public Report generateReport(ArrayList<Equipment> stockEquipmentList, ArrayList<Office> offices, int objRequest) {
-        Report report;
-        
         // combine all the equipments of stock & each office
         ArrayList<Equipment> equipmentList = new ArrayList<>();
         for (Equipment e : stockEquipmentList) {
@@ -48,12 +46,9 @@ public class Manager extends User{
             }
         }
         
-        // choose which type of report
-        if (objRequest == 0) {
-            report = new OverallReport(equipmentList, offices.toArray());
-        } else { // 1
-            report = new EquipmentExpensesReport(equipmentList, offices.toArray() );
-        }
+        // instantiate report
+        ReportFactory factory = new ConcreteReportFactory();
+        Report report = factory.createReportObject(objRequest, equipmentList, offices);
         
         return report;
     }
